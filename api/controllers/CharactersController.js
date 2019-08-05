@@ -9,13 +9,18 @@ module.exports = {
   createCharacter: async function(req, res, next) {
     sails.log("creating character - req.body", req.body);
 
-    //if you don't include fetch - createdCharacter will be undefined
-    let createdCharacter = await Characters.create(req.body).fetch();
+    //error checking
+    if (!req.body.name || !req.body.charClass) {
+      return res.redirect("/dashboard");
+    } else {
+      //if you don't include fetch - createdCharacter will be undefined
+      let createdCharacter = await Characters.create(req.body).fetch();
 
-    sails.log(createdCharacter);
+      sails.log(createdCharacter);
 
-    //return to dashboard
-    return res.redirect("/dashboard");
+      //return to dashboard
+      return res.redirect("/dashboard");
+    }
   },
   optimize: async function(req, res, next) {
     sails.log("optimize", req.params);
