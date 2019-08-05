@@ -54,7 +54,9 @@ module.exports.routes = {
   //  ║║║║╚═╗║
   //  ╩ ╩╩╚═╝╚═╝
 
-  '/dashboard': 'CreateCharacterController.start',
-  '/createCharacter': 'CharactersController.createCharacter',
+  'GET /dashboard': 'CreateCharacterController.start',
+
+  'POST /createCharacter': 'CharactersController.createCharacter',
+  'POST /optimize/:id' :'CharactersController.optimize',
 
 };
