@@ -30,9 +30,16 @@
                 <!-- check if optimized already -->
                 <% if(!character.optimized) { %>
                     <p>
+                        </div>
+                        Select up to 2: 
                         <form action="/optimize/<%=character.id %>" method="post">
+                            <input type="checkbox" name="optimizeAttribute" value="health"> Health<br>
+                            <input type="checkbox" name="optimizeAttribute" value="attack"> Attack<br>
+                            <input type="checkbox" name="optimizeAttribute" value="defense"> Defense<br>
+                            <input type="checkbox" name="optimizeAttribute" value="mana"> Mana<br>
                             <input type="submit" value="Optimize">
                         </form>
+                        <div>
                     </p>
                     <% } else { %>
                         Character has already been optimized
