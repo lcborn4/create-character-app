@@ -1,7 +1,7 @@
-# character-creation
+# Create Character App
+To be used as a learning tool.
 
 a [Sails v1](https://sailsjs.com) application
-
 
 ### Links
 
