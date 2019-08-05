@@ -34,7 +34,7 @@ module.exports = {
 
 
         //return the dashboard
-        res.view('./pages/dashboard.ejs',{characters: characters})
+        res.view('./pages/dashboard',{characters: characters})
     },
 
 };
