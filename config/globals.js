@@ -48,5 +48,7 @@ module.exports.globals = {
   ****************************************************************************/
 
   sails: true,
+  
+  itemsAPI: 'https://create-character-items.herokuapp.com/items'
 
 };
