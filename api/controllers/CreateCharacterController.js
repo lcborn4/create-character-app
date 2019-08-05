@@ -5,6 +5,8 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
+//Main Controller
+
 module.exports = {
 
     //start app
@@ -14,8 +16,12 @@ module.exports = {
 
         //phase 1
         //retrieve items from database
-        //retrieve characters from database
+        let items = await Items.find({})
 
+        //retrieve characters from database
+        let characters = await Characters.find({})
+        sails.log('characters length',characters.length)
+        
         //phase 2
         //retrieve items from outside api
         //store in database
@@ -28,7 +34,7 @@ module.exports = {
 
 
         //return the dashboard
-        res.view('./pages/dashboard.ejs')
+        res.view('./pages/dashboard.ejs',{characters: characters})
     },
 
 };
