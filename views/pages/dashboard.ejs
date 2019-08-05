@@ -1,29 +1,46 @@
-<h1>Dashboard</h1>
+<div align="center"></div>
+    <h1>Dashboard</h1>
 
-<form action="/createCharacter" method="post">
-    Name:<br>
-    <input type="text" name="name" value="">
+    <form action="/createCharacter" method="post">
+        Name:<br>
+        <input type="text" name="name" value="">
+        <br>
+        <input type="radio" name="charClass" value="assassin"> Assassin<br>
+        <input type="radio" name="charClass" value="knight"> Knight<br>
+        <input type="radio" name="charClass" value="spellcaster"> Spellcaster<br>
+        <input type="radio" name="charClass" value="warrrior"> Warrior<br>
+        <input type="submit" value="Create">
+    </form>
     <br>
-    <input type="radio" name="charClass" value="assassin"> Assassin<br>
-    <input type="radio" name="charClass" value="knight"> Knight<br>
-    <input type="radio" name="charClass" value="spellcaster"> Spellcaster<br>
-    <input type="radio" name="charClass" value="warrrior"> Warrior<br>
-    <input type="submit" value="Create">
-</form>
-<br>
-List of Characters
-<br>
-<div>
-    <ul>
-        <% characters.forEach(function(character) { %>
-        <div>
-            <!--output character attributes-->
-            <span><%= character.name %></span>
+    <h2>List of Characters</h2>
+    <br>
+    <div>
+        <ul>
+            <% characters.forEach(function(character) { %>
+            <div>
+                <div>
+                    <!--output character attributes-->
+                    <h3><%= character.name %></h3>
+                    <p>
+                        <%= character.charClass %>
+                    </p>
+                </div>
+                <div>
+                <!-- show button for optimize -->
+                <!-- check if optimized already -->
+                <% if(!character.optimized) { %>
+                    <p>
+                        <form action="/optimize/<%=character.id %>" method="post">
+                            <input type="submit" value="Optimize">
+                        </form>
+                    </p>
+                    <% } else { %>
+                        Character has already been optimized
+                    <% } %>
+                </div>
+            </div>
+            <% }); %>
+        </ul>
+    </div>
 
-            <!-- show button for optimize -->
-            <!-- check if optimized already -->
-            
-        </div>
-        <% }); %>
-    </ul>
 </div>
